@@ -1,0 +1,48 @@
+Algoritmo RemoverArvoreB
+
+Var
+    ArvoreB: vetor [1..MAX_CHAVES] de inteiro
+    Tamanho: inteiro
+    Chave: inteiro
+
+Inicio
+    // Inicializa a árvore B e o tamanho
+    Para Indice de 1 até MAX_CHAVES Faça
+        ArvoreB[Indice] := 0  // Inicializa todas as posições com 0 (indicando vazias)
+    FimPara
+    Tamanho := 0  // Inicializa o tamanho da árvore como 0 (árvore vazia)
+
+    // Código para inserir chaves na árvore B
+
+    // Código para remover chaves na árvore B
+    Escrever("Informe a chave a ser removida:")
+    Leia(Chave)
+    Indice := 1
+    Enquanto (Indice <= Tamanho) E (ArvoreB[Indice] <> Chave) Faça
+        Se Chave < ArvoreB[Indice] Então
+            Indice := Indice * 2
+        Senão
+            Indice := Indice * 2 + 1
+        FimSe
+    FimEnquanto
+
+    // Remoção da chave na raiz
+    Se Indice = 1 Então
+        Se ArvoreB[2] ≠ 0 Então
+            // Lógica para remoção quando há filhos à esquerda
+        Senão
+            // Lógica para remoção quando não há filhos
+        FimSe
+    // Remoção em outras posições
+    Senão
+        Se Indice > Tamanho Ou ArvoreB[Indice] <> Chave Então
+            Escrever("Chave não encontrada na árvore B")
+        Senão
+            ArvoreB[Indice] := 0  // Remove a chave da posição encontrada
+            Tamanho := Tamanho - 1  // Reduz o tamanho da árvore
+            // Lógica para ajustar a árvore após a remoção (rebalanceamento)
+            Escrever("Chave removida com sucesso")
+        FimSe
+    FimSe
+
+FimAlgoritmo
